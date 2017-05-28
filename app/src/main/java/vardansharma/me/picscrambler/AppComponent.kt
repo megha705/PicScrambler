@@ -2,6 +2,7 @@ package vardansharma.me.picscrambler
 
 import dagger.Component
 import vardansharma.me.picscrambler.data.DataModule
+import vardansharma.me.picscrambler.ui.GameViewModel
 import javax.inject.Singleton
 
 
@@ -13,9 +14,5 @@ import javax.inject.Singleton
 )
 @Singleton
 interface AppComponent {
-    fun inject(into: CounterViewModel)
-}
-
-class CounterViewModel {
-
+    fun inject(into: GameViewModel)
 }
