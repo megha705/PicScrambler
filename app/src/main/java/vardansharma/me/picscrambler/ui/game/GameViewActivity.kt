@@ -3,7 +3,7 @@ package vardansharma.me.picscrambler.ui.game
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import com.example.vardansharma.simplesttodoappever.utils.*
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_game.*
 import org.jetbrains.anko.design.snackbar
 import vardansharma.me.picscrambler.PicScramblerApp
 import vardansharma.me.picscrambler.R
@@ -12,9 +12,6 @@ import vardansharma.me.picscrambler.util.GridSpacingItemDecoration
 
 
 class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickListener {
-    override fun showError() {
-    }
-
     companion object {
         private val SPAN_COUNT = 3
     }
@@ -99,6 +96,9 @@ class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickL
         presenter.allImagesLoaded()
     }
 
+    override fun showError() {
+        snackbar(rv_photos, "Oops no internet connection!!")
+    }
 
     private fun setUpRecyclerView() {
         rv_photos.layoutManager = GridLayoutManager(this, SPAN_COUNT)

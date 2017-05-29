@@ -1,6 +1,6 @@
 package vardansharma.me.picscrambler.ui.game
 
-import vardansharma.me.picscrambler.data.RemotePhotoRepository
+import vardansharma.me.picscrambler.data.PhotoRepositoryManager
 
 /**
  * Created by vardansharma on 28/05/17.
@@ -14,7 +14,7 @@ class GameModule(val view: GameView) {
     }
 
     @dagger.Provides
-    fun providePresenter(view: GameView, repository: RemotePhotoRepository): GamePresenter {
+    fun providePresenter(view: GameView, repository: PhotoRepositoryManager): GamePresenter {
         return GamePresenter(repository, view)
     }
 }

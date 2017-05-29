@@ -2,7 +2,7 @@ package vardansharma.me.picscrambler.di
 
 import android.content.Context
 import vardansharma.me.picscrambler.data.DataModule
-import vardansharma.me.picscrambler.data.RemotePhotoRepository
+import vardansharma.me.picscrambler.data.PhotoRepositoryManager
 
 
 @dagger.Component(
@@ -13,7 +13,7 @@ import vardansharma.me.picscrambler.data.RemotePhotoRepository
 )
 @javax.inject.Singleton
 interface AppComponent {
-    fun provideRepository(): RemotePhotoRepository
+    fun provideRepository(): PhotoRepositoryManager
 
     fun provideContext(): Context
 

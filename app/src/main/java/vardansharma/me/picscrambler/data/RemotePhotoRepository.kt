@@ -13,6 +13,22 @@ open class RemotePhotoRepository(private val flickerApi: FlickerService) : Photo
     }
 }
 
+class InMemoryPhotoRepository : PhotoRepository {
+    override fun getPhotos(): Observable<List<Photo>> {
+        TODO("For now we are not implementing this")
+    }
+
+}
+// there can be other version such as from disk or from a database
+
+
+class PhotoRepositoryManager(val inMemoryRepo: InMemoryPhotoRepository, val remoteRepo: RemotePhotoRepository) : PhotoRepository {
+    override fun getPhotos(): Observable<List<Photo>> {
+        return remoteRepo.getPhotos()
+    }
+}
+
+
 interface PhotoRepository {
     fun getPhotos(): Observable<List<Photo>>
 }

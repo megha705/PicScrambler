@@ -39,5 +39,12 @@ class DataModule {
 
     @Singleton @Provides fun provideFlickerApi(retrofit: Retrofit) = retrofit.create(FlickerService::class.java)
 
-    @Singleton @Provides fun providePhotoRepository(flickerService: FlickerService) = RemotePhotoRepository(flickerService)
+    @Singleton @Provides fun provideRemotePhotoRepository(flickerService: FlickerService) = RemotePhotoRepository(flickerService)
+
+    @Singleton @Provides fun provideInMemoryPhotoRepository() = InMemoryPhotoRepository()
+
+    @Singleton @Provides fun providePhotoRepositoryManager(inMemory: InMemoryPhotoRepository, remote: RemotePhotoRepository)
+            = PhotoRepositoryManager(inMemory, remote)
+
+
 }
