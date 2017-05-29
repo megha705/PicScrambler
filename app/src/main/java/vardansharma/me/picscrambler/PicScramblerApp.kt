@@ -9,6 +9,7 @@ import vardansharma.me.picscrambler.di.DaggerAppComponent
 
 class PicScramblerApp : Application() {
 
+    // exposing the app components so that other components can access this from here
     val appComponent: AppComponent = DaggerAppComponent.builder()
             .androidModule(AndroidModule(this))
             .build()

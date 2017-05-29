@@ -19,10 +19,13 @@ class InMemoryPhotoRepository : PhotoRepository {
     }
 
 }
-// there can be other version such as from disk or from a database
-
-
-class PhotoRepositoryManager(val inMemoryRepo: InMemoryPhotoRepository, val remoteRepo: RemotePhotoRepository) : PhotoRepository {
+// there can be other version such as from disk or from a database or from a file system anything
+/***
+ * This class will have the responsibility to call the approriate repository remote or InMemory or
+ * any other
+ * */
+class PhotoRepositoryManager(val inMemoryRepo: InMemoryPhotoRepository,
+                             val remoteRepo: RemotePhotoRepository) : PhotoRepository {
     override fun getPhotos(): Observable<List<Photo>> {
         return remoteRepo.getPhotos()
     }

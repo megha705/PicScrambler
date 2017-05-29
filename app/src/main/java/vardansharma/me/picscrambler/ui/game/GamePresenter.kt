@@ -60,7 +60,7 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
 
     private fun startTimer() {
         disposable += Observable.interval(1, UPDATE_TIMER_INTERVAL, TimeUnit.SECONDS)
-                .map({ it + 1 })// we want seq to start from 1 instead of 0
+                .map({PREVIEW_SHOWN_DURATION - it })// we want seq to start from 1 instead of 0
                 .subscribeOn(io())
                 .observeOn(mainThread())
                 .take(PREVIEW_SHOWN_DURATION)
@@ -109,8 +109,8 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
         originalPhotos[position].hidePhoto = false
         gameView.updatePhoto(position)
         //finish the activity after 3 seconds
-        disposable += Flowable.interval(0, 3, TimeUnit.SECONDS)
-                .take(2)
+        disposable += Flowable.interval(0, 2, TimeUnit.SECONDS)
+                .take(1)
                 .subscribeOn(io())
                 .observeOn(mainThread())
                 .subscribe({ }, {}, { gameView.finishGame() })
