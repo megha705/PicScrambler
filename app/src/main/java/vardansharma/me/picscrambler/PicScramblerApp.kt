@@ -3,6 +3,9 @@ package vardansharma.me.picscrambler
 import android.app.Application
 import com.facebook.stetho.Stetho
 import timber.log.Timber
+import vardansharma.me.picscrambler.di.AndroidModule
+import vardansharma.me.picscrambler.di.AppComponent
+import vardansharma.me.picscrambler.di.DaggerAppComponent
 
 class PicScramblerApp : Application() {
 

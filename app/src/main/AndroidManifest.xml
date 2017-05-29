@@ -3,6 +3,7 @@
           package="vardansharma.me.picscrambler">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".PicScramblerApp"
         android:allowBackup="true"
@@ -11,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.game.GameViewActivity">
+        </activity>
+        <activity android:name=".ui.intro.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PicScrambler</string>
+    <string name="game_rules_list">You\'ll be presented with 9 images for 15 seconds.
+        After 15 seconds your job is to indentify all the images.
+        You will be presented with a preview image that will be displayed in a random fashion.
+         Once the image is correctly identified, it is flipped back.
+         Your turn is not complete until the user identifies the correct image.
+         The game ends when all 9 images have been flipped back</string>
+    <string name="label_game_rules">Game Rules</string>
+    <string name="let_s_play">Let\'s play</string>
+    <string name="game_over">Game over thanks for playing</string>
+    <string name="wrong_guess">Wrong one</string>
 </resources>

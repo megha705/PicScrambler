@@ -1,4 +1,4 @@
-package vardansharma.me.picscrambler
+package vardansharma.me.picscrambler.di
 
 import android.content.Context
 import dagger.Module
