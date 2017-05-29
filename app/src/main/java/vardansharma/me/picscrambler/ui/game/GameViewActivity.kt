@@ -29,7 +29,7 @@ class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickL
         initDI()
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_game)
 
         setUpRecyclerView()
         presenter.onBind()
