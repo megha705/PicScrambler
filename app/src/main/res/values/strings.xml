@@ -11,4 +11,6 @@
     <string name="game_over">Game over thanks for playing</string>
     <string name="wrong_guess">Wrong one</string>
     <string name="no_internet_connection">Oops no internet connection!!</string>
+    <string name="play_again">Play Again</string>
+    <string name="game_over_you_won">Game over You Won!!</string>
 </resources>

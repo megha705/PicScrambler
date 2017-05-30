@@ -104,7 +104,6 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
     }
 
     private fun handleLastMove(position: Int) {
-        gameView.showGameOverMsg()
         originalPhotos[position].hidePhoto = false
         gameView.updatePhoto(position)
         //finish the activity after 3 seconds
@@ -112,7 +111,7 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
                 .take(1)
                 .subscribeOn(io())
                 .observeOn(mainThread())
-                .subscribe({ }, {}, { gameView.finishGame() })
+                .subscribe({ }, {}, { gameView.moveToGameOverScreen() })
     }
 
     fun allImagesLoaded() {

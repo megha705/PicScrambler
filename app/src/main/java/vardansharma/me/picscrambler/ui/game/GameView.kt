@@ -16,9 +16,7 @@ interface GameView : vardansharma.me.picscrambler.base.BaseView {
 
     fun showWrongSelectedMsg()
 
-    fun showGameOverMsg()
-
-    fun finishGame()
+    fun moveToGameOverScreen()
 
     fun showError()
 }

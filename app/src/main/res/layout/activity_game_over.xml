@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="vardansharma.me.picscrambler.ui.gameover.GameOverActivity">
+
+    <TextView
+        android:id="@+id/txt_game_over"
+        style="@style/Base.TextAppearance.AppCompat.Display1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/game_over_you_won"/>
+
+    <Button
+        android:id="@+id/btn_play_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorAccent"
+        android:text="@string/play_again"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

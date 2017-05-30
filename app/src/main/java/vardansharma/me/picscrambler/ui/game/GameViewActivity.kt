@@ -8,9 +8,11 @@ import com.example.vardansharma.simplesttodoappever.utils.show
 import com.example.vardansharma.simplesttodoappever.utils.toast
 import kotlinx.android.synthetic.main.activity_game.*
 import org.jetbrains.anko.design.snackbar
+import org.jetbrains.anko.startActivity
 import vardansharma.me.picscrambler.PicScramblerApp
 import vardansharma.me.picscrambler.R
 import vardansharma.me.picscrambler.data.Photo
+import vardansharma.me.picscrambler.ui.gameover.GameOverActivity
 
 
 class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickListener {
@@ -82,11 +84,8 @@ class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickL
         presenter.onItemClicked(position)
     }
 
-    override fun showGameOverMsg() {
-        toast(getString(vardansharma.me.picscrambler.R.string.game_over))
-    }
-
-    override fun finishGame() {
+    override fun moveToGameOverScreen() {
+        startActivity<GameOverActivity>()
         finish()
     }
 
