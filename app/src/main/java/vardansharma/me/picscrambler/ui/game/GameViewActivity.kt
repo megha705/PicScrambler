@@ -97,7 +97,7 @@ class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickL
     }
 
     override fun showError() {
-        snackbar(rv_photos, "Oops no internet connection!!")
+        snackbar(rv_photos, getString(R.string.no_internet_connection))
     }
 
     private fun setUpRecyclerView() {

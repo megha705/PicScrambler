@@ -25,7 +25,7 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
     private var disposable: CompositeDisposable = CompositeDisposable()
 
     private lateinit var originalPhotos: List<Photo>
-    private lateinit var shuffledPhotos: List<Photo>
+    private lateinit var shuffedPositions: List<Int>
 
     private var gameStarted: Boolean = false
     private var gameIndex = 0
@@ -40,7 +40,7 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
                         photos != null -> {
                             this.originalPhotos = photos
                             gameView.showPhotos(photos)
-                            shuffledPhotos = getShuffledPhotos(photos)
+                            shuffedPositions = getShuffledPhotos()
                         }
                     }
                     gameView.hideLoading()
@@ -51,16 +51,15 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
                 })
     }
 
-    private fun getShuffledPhotos(photos: List<Photo>): List<Photo> {
-        val shuffledList: MutableList<Photo> = mutableListOf()
-        photos.mapTo(shuffledList) { it.copy() }
+    private fun getShuffledPhotos(): List<Int> {
+        val shuffledList: MutableList<Int> = mutableListOf(0, 1, 2, 3, 4, 5, 6, 7, 8)
         Collections.shuffle(shuffledList)
         return shuffledList
     }
 
     private fun startTimer() {
         disposable += Observable.interval(1, UPDATE_TIMER_INTERVAL, TimeUnit.SECONDS)
-                .map({PREVIEW_SHOWN_DURATION - it })// we want seq to start from 1 instead of 0
+                .map({ PREVIEW_SHOWN_DURATION - it })// we want seq to start from 1 instead of 0
                 .subscribeOn(io())
                 .observeOn(mainThread())
                 .take(PREVIEW_SHOWN_DURATION)
@@ -76,7 +75,7 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
     }
 
     private fun showNextImage() {
-        gameView.showPreviewImage(shuffledPhotos[gameIndex])
+        gameView.showPreviewImage(originalPhotos[shuffedPositions[gameIndex]])
     }
 
     override fun onUnbind() {
@@ -89,7 +88,7 @@ class GamePresenter @Inject constructor(val photoRepository: PhotoRepository, va
             timber.log.Timber.e("Game not started why are you clicking dude???")
             return
         }
-        val guessedCorrectly = shuffledPhotos[gameIndex].url == originalPhotos[position].url
+        val guessedCorrectly = shuffedPositions[gameIndex] == position
         if (guessedCorrectly) {
             gameIndex++
             val lastMoveInGame = gameIndex == MAX_ITEMS
