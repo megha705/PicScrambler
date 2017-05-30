@@ -2,13 +2,15 @@ package vardansharma.me.picscrambler.ui.game
 
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import com.example.vardansharma.simplesttodoappever.utils.*
+import com.example.vardansharma.simplesttodoappever.utils.gone
+import com.example.vardansharma.simplesttodoappever.utils.loadImage
+import com.example.vardansharma.simplesttodoappever.utils.show
+import com.example.vardansharma.simplesttodoappever.utils.toast
 import kotlinx.android.synthetic.main.activity_game.*
 import org.jetbrains.anko.design.snackbar
 import vardansharma.me.picscrambler.PicScramblerApp
 import vardansharma.me.picscrambler.R
 import vardansharma.me.picscrambler.data.Photo
-import vardansharma.me.picscrambler.util.GridSpacingItemDecoration
 
 
 class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickListener {
@@ -104,7 +106,6 @@ class GameViewActivity : AppCompatActivity(), GameView, PhotoAdapter.PhotoClickL
         rv_photos.layoutManager = GridLayoutManager(this, SPAN_COUNT)
         photoAdapter = PhotoAdapter(this)
         rv_photos.adapter = photoAdapter
-        rv_photos.addItemDecoration(GridSpacingItemDecoration(SPAN_COUNT, dpToPixel(8), true))
     }
 
 }
